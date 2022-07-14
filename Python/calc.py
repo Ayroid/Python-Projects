@@ -1,21 +1,25 @@
 expression=input("Enter your equation: ")
-operators=['+','-','*','/']
+operators=['+','-','*','/','^']
 flg=0
 for i in expression:
     if i in operators:
         indx=expression.index(i)
-        num1=expression[:indx]
-        num2=expression[indx+1:]
+        num1=int(expression[:indx])
+        num2=int(expression[indx+1:])
         op=expression[indx]
         flg=1
         break
 if flg==1:
     print("Output: ",end='')
     if op=='+':
-        print(int(num1)+int(num2))
+        print(num1+num2)
     elif op=='-':
-        print(int(num1)-int(num2))
+        print(num1-num2)
     elif op=='*':
-        print(int(num1)*int(num2))
+        print(num1*num2)
     elif op=='/':
-        print(int(num1)/int(num2))
+        print(num1/num2)
+    elif op=='^':
+        print(num1**num2)
+else:
+    print("Operator not Recognised")
